@@ -28,13 +28,4 @@ dependencies {
     'ox_lib',
 }
 
-escrow_ignore {
-    'client',
-    'installation',
-    'locales',
-    'server',
-    'config.lua',
-    'README.md'
-}
-
 lua54 'yes'
