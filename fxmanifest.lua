@@ -3,7 +3,7 @@ rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aw
 game 'rdr3'
 
 description 'rex-butcher'
-version '1.0.8'
+version '1.0.9'
 
 shared_scripts {
     '@ox_lib/init.lua',
@@ -19,7 +19,8 @@ client_scripts {
 }
 
 server_scripts {
-    'server/server.lua'
+    'server/server.lua',
+    'server/versionchecker.lua'
 }
 
 dependencies {
@@ -27,5 +28,7 @@ dependencies {
     'rsg-target',
     'ox_lib',
 }
+
+this_is_a_map 'yes'
 
 lua54 'yes'

@@ -76,9 +76,9 @@ Config.ButcherLocations = {
     {   -- annesburg
         name = Lang:t('config.lang_1'),
         prompt = 'annesburg-butcher',
-        coords = vector3(2932.54, 1302.00, 44.48),
+        coords = vector3(2937.32, 1310.64, 44.48),
         npcmodel = `s_m_m_unibutchers_01`,
-        npccoords = vector4(2934.1706, 1301.2891, 44.483638, 78.346809),
+        npccoords = vector4(2937.32, 1310.64, 44.48, 87.14),
         showblip = true
     },
     {   -- tumbleweed
