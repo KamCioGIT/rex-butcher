@@ -1,9 +1,9 @@
 local RSGCore = exports['rsg-core']:GetCoreObject()
 local SpawnedButcherBilps = {}
 
------------------------------------------------------------------
+--------------------------------------
 -- butcher prompts and blips
------------------------------------------------------------------
+--------------------------------------
 Citizen.CreateThread(function()
     for _,v in pairs(Config.ButcherLocations) do
         if not Config.EnableTarget then
@@ -22,46 +22,60 @@ Citizen.CreateThread(function()
     end
 end)
 
------------------------------------------------------------------
+--------------------------------------
 -- butcher shop hours system
------------------------------------------------------------------
+--------------------------------------
 -- open butchers with opening hours
 local OpenButchers = function()
-    local hour = GetClockHours()
-    if (hour < Config.OpenTime) or (hour >= Config.CloseTime) and not Config.AlwaysOpen then
-        lib.notify({
-            title = Lang:t('client.lang_2'),
-            description = Lang:t('client.lang_3')..Config.OpenTime..Lang:t('client.lang_4'),
-            type = 'error',
-            icon = 'fa-solid fa-shop',
-            iconAnimation = 'shake',
-            duration = 7000
-        })
-        return
-    end
-    TriggerEvent('rex-butcher:client:mainmenu')
+    if not Config.AlwaysOpen then
+        local hour = GetClockHours()
+        if (hour < Config.OpenTime) or (hour >= Config.CloseTime) and not Config.AlwaysOpen then
+            lib.notify({
+                title = Lang:t('client.lang_2'),
+                description = Lang:t('client.lang_3')..Config.OpenTime..Lang:t('client.lang_4'),
+                type = 'error',
+                icon = 'fa-solid fa-shop',
+                iconAnimation = 'shake',
+                duration = 7000
+            })
+            return
+        end
+	end
+	TriggerEvent('rex-butcher:client:mainmenu')
 end
 
+--------------------------------------
 -- get butchers hours function
+--------------------------------------
 local GetButcherHours = function()
     local hour = GetClockHours()
-    if (hour < Config.OpenTime) or (hour >= Config.CloseTime) and not Config.AlwaysOpen then
-        for k, v in pairs(SpawnedButcherBilps) do
-            Citizen.InvokeNative(0x662D364ABF16DE2F, v, joaat('BLIP_MODIFIER_MP_COLOR_2'))
+    if not Config.AlwaysOpen then
+        if (hour < Config.OpenTime) or (hour >= Config.CloseTime) then
+            for k, v in pairs(SpawnedButcherBilps) do
+                BlipAddModifier(v, joaat('BLIP_MODIFIER_MP_COLOR_2'))
+            end
+        else
+            for k, v in pairs(SpawnedButcherBilps) do
+                BlipAddModifier(v, joaat('BLIP_MODIFIER_MP_COLOR_8'))
+            end
         end
     else
         for k, v in pairs(SpawnedButcherBilps) do
-            Citizen.InvokeNative(0x662D364ABF16DE2F, v, joaat('BLIP_MODIFIER_MP_COLOR_8'))
+            BlipAddModifier(v, joaat('BLIP_MODIFIER_MP_COLOR_8'))
         end
     end
 end
 
+--------------------------------------
 -- get butchers hours on player loading
+--------------------------------------
 RegisterNetEvent('RSGCore:Client:OnPlayerLoaded', function()
     GetButcherHours()
 end)
 
+--------------------------------------
 -- update shop hours every min
+--------------------------------------
 CreateThread(function()
     while true do
         if Config.AlwaysOpen then
@@ -76,9 +90,9 @@ AddEventHandler('rex-butcher:client:openbutcher', function()
     OpenButchers()
 end)
 
------------------------------------------------------------------
+--------------------------------------
 -- butcher main menu
------------------------------------------------------------------
+--------------------------------------
 RegisterNetEvent('rex-butcher:client:mainmenu', function()
     lib.registerContext(
         {
@@ -104,9 +118,9 @@ RegisterNetEvent('rex-butcher:client:mainmenu', function()
     lib.showContext('butcher_menu')
 end)
 
------------------------------------------------------------------
+--------------------------------------
 -- sell animals
------------------------------------------------------------------
+--------------------------------------
 RegisterNetEvent('rex-butcher:client:sellanimal', function()
 
     local holding = GetFirstEntityPedIsCarrying(cache.ped)
@@ -162,9 +176,9 @@ RegisterNetEvent('rex-butcher:client:sellanimal', function()
     end
 end)
 
------------------------------------------------------------------
+--------------------------------------
 -- delete holding
------------------------------------------------------------------
+--------------------------------------
 function DeleteThis(holding)
     NetworkRequestControlOfEntity(holding)
     SetEntityAsMissionEntity(holding, true, true)
@@ -180,9 +194,9 @@ function DeleteThis(holding)
     end
 end
 
------------------------------------------------------------------
+--------------------------------------
 -- butcher shop
------------------------------------------------------------------
+--------------------------------------
 RegisterNetEvent('rex-butcher:client:OpenButcherShop', function()
     local ShopItems = {}
     ShopItems.label = Lang:t('client.lang_14')

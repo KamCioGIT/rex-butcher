@@ -10,6 +10,7 @@ Config.GoodMultiplier = 2
 Config.PerfectMultiplier = 3
 Config.KeyBind = 'J'
 Config.EnableTarget = true
+Config.AlwaysOpen = true
 
 ---------------------------------
 -- webhook settings
