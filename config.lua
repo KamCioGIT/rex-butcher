@@ -10,7 +10,6 @@ Config.GoodMultiplier = 2
 Config.PerfectMultiplier = 3
 Config.KeyBind = 'J'
 Config.EnableTarget = true
-Config.AlwaysOpen = true
 
 ---------------------------------
 -- webhook settings
@@ -18,15 +17,11 @@ Config.AlwaysOpen = true
 Config.WebhookName = 'rexbutcher'
 Config.WebhookTitle = 'Rex Butcher'
 Config.WebhookColour = 'default'
-Config.Lang1 = ' Sold a poor '
-Config.Lang2 = ' Sold a good '
-Config.Lang3 = ' Sold a perfect '
-Config.Lang4 = ' for $'
 
 ---------------------------------
 -- openting hours
 ---------------------------------
-Config.AlwaysOpen = false -- if false configure the open/close times
+Config.AlwaysOpen = true -- if false configure the open/close times
 Config.OpenTime = 8 -- store opens
 Config.CloseTime = 20 -- store closes
 
@@ -40,7 +35,7 @@ Config.FadeIn = true
 -- blip settings
 ---------------------------------
 Config.Blip = {
-    blipName = Lang:t('config.lang_1'), -- Config.Blip.blipName
+    blipName = 'Butcher Shop', -- Config.Blip.blipName
     blipSprite = 'blip_shop_butcher', -- Config.Blip.blipSprite
     blipScale = 0.2 -- Config.Blip.blipScale
 }
@@ -51,7 +46,7 @@ Config.Blip = {
 Config.ButcherLocations = {
 
     {   --valentine
-        name = Lang:t('config.lang_1'),
+        name = 'Valentine Butcher',
         prompt = 'valentine-butcher',
         coords = vector3(-341.05, 767.33, 116.70),
         npcmodel = `u_m_m_valbutcher_01`,
@@ -59,7 +54,7 @@ Config.ButcherLocations = {
         showblip = true
     },
     {   --st denis
-        name = Lang:t('config.lang_1'),
+        name = 'St Denis Butcher',
         prompt = 'stdenis-butcher',
         coords = vector3(2816.37, -1322.24, 46.61),
         npcmodel = `s_m_m_unibutchers_01`,
@@ -67,7 +62,7 @@ Config.ButcherLocations = {
         showblip = true
     },
     {   -- rhodes
-        name = Lang:t('config.lang_1'),
+        name = 'Rhodes Butcher',
         prompt = 'rhodes-butcher',
         coords = vector3(1296.36, -1279.26, 75.84),
         npcmodel = `s_m_m_unibutchers_01`,
@@ -75,7 +70,7 @@ Config.ButcherLocations = {
         showblip = true
     },
     {   -- annesburg
-        name = Lang:t('config.lang_1'),
+        name = 'Annesburg Butcher',
         prompt = 'annesburg-butcher',
         coords = vector3(2937.32, 1310.64, 44.48),
         npcmodel = `s_m_m_unibutchers_01`,
@@ -83,7 +78,7 @@ Config.ButcherLocations = {
         showblip = true
     },
     {   -- tumbleweed
-        name = Lang:t('config.lang_1'),
+        name = 'Tumbleweed Butcher',
         prompt = 'tumbleweed-butcher',
         coords = vector3(-5508.10, -2947.73, -1.87),
         npcmodel = `s_m_m_unibutchers_01`,
@@ -91,7 +86,7 @@ Config.ButcherLocations = {
         showblip = true
     },
     {   -- blackwater
-        name = Lang:t('config.lang_1'),
+        name = 'Blackwater Butcher',
         prompt = 'blackwater-butcher',
         coords = vector3(-751.102, -1284.896, 43.276576),
         npcmodel = `s_m_m_unibutchers_01`,
@@ -99,7 +94,7 @@ Config.ButcherLocations = {
         showblip = true
     },
     {   -- strawberry
-        name = Lang:t('config.lang_1'),
+        name = 'Strawberry Butcher',
         prompt = 'strawberry-butcher',
         coords = vector3(-1752.91, -394.74, 156.19),
         npcmodel = `s_m_m_unibutchers_01`,
@@ -107,7 +102,7 @@ Config.ButcherLocations = {
         showblip = true
     },
     {   -- vanhorn
-        name = Lang:t('config.lang_1'),
+        name = 'Van-Horn Butcher',
         prompt = 'vanhorn-butcher',
         coords = vector3(2994.23, 571.79, 44.35),
         npcmodel = `s_m_m_unibutchers_01`,
@@ -115,7 +110,7 @@ Config.ButcherLocations = {
         showblip = true
     },
     {   -- spidergorge
-        name = Lang:t('config.lang_1'),
+        name = 'Spider Gorge Butcher',
         prompt = 'spidergorge-butcher',
         coords = vector3(-1355.103, 2420.8293, 307.48272),
         npcmodel = `s_m_m_unibutchers_01`,
@@ -123,7 +118,7 @@ Config.ButcherLocations = {
         showblip = true
     },
     {   -- riggsstation
-        name = Lang:t('config.lang_1'),
+        name = 'Riggs Station Butcher',
         prompt = 'riggsstation-butcher',
         coords = vector3(-1005.966, -540.9986, 98.964859),
         npcmodel = `s_m_m_unibutchers_01`,

@@ -13,18 +13,18 @@ AddEventHandler('rex-butcher:server:reward', function(rewardmoney, rewarditem, q
         Player.Functions.AddMoney('cash', rewardmoney * Config.PoorMultiplier)
         Player.Functions.AddItem(rewarditem, 1)
         TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[rewarditem], "add")
-        TriggerEvent('rsg-log:server:CreateLog', Config.WebhookName, Config.WebhookTitle, Config.WebhookColour, GetPlayerName(src) .. Config.Lang1 .. name .. Config.Lang4 .. rewardmoney * Config.PoorMultiplier, false)
+        TriggerEvent('rsg-log:server:CreateLog', Config.WebhookName, Config.WebhookTitle, Config.WebhookColour, GetPlayerName(src) .. Lang:t('server.lang_1') .. name .. Lang:t('server.lang_4') .. rewardmoney * Config.PoorMultiplier, false)
     end
     if quality == 'good' then
         Player.Functions.AddMoney('cash', rewardmoney * Config.GoodMultiplier)
         Player.Functions.AddItem(rewarditem, 2)
         TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[rewarditem], "add")
-        TriggerEvent('rsg-log:server:CreateLog', Config.WebhookName, Config.WebhookTitle, Config.WebhookColour, GetPlayerName(src) .. Config.Lang2 .. name .. Config.Lang4 .. rewardmoney * Config.GoodMultiplier, false)
+        TriggerEvent('rsg-log:server:CreateLog', Config.WebhookName, Config.WebhookTitle, Config.WebhookColour, GetPlayerName(src) .. Lang:t('server.lang_2') .. name .. Lang:t('server.lang_4') .. rewardmoney * Config.GoodMultiplier, false)
     end
     if quality == 'perfect' then
         Player.Functions.AddMoney('cash', rewardmoney * Config.PerfectMultiplier)
         Player.Functions.AddItem(rewarditem, 3)
         TriggerClientEvent('inventory:client:ItemBox', src, RSGCore.Shared.Items[rewarditem], "add")
-        TriggerEvent('rsg-log:server:CreateLog', Config.WebhookName, Config.WebhookTitle, Config.WebhookColour, GetPlayerName(src) .. Config.Lang3 .. name .. Config.Lang4 .. rewardmoney * Config.PerfectMultiplier, false)
+        TriggerEvent('rsg-log:server:CreateLog', Config.WebhookName, Config.WebhookTitle, Config.WebhookColour, GetPlayerName(src) .. Lang:t('server.lang_3') .. name .. Lang:t('server.lang_4') .. rewardmoney * Config.PerfectMultiplier, false)
     end
 end)

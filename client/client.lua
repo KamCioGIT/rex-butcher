@@ -40,8 +40,8 @@ local OpenButchers = function()
             })
             return
         end
-	end
-	TriggerEvent('rex-butcher:client:mainmenu')
+    end
+    TriggerEvent('rex-butcher:client:mainmenu')
 end
 
 --------------------------------------
@@ -73,16 +73,13 @@ RegisterNetEvent('RSGCore:Client:OnPlayerLoaded', function()
     GetButcherHours()
 end)
 
---------------------------------------
--- update shop hours every min
---------------------------------------
+---------------------------------
+-- update butchers hours every min
+---------------------------------
 CreateThread(function()
     while true do
-        if Config.AlwaysOpen then
-            GetButcherHours()
-            Wait(60000) -- every min
-        end
-        Wait(1000)
+        GetButcherHours()
+        Wait(60000) -- every min
     end       
 end)
 

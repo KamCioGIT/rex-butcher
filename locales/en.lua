@@ -18,8 +18,11 @@ local Translations = {
         lang_15 = 'Open Butcher Menu',
     },
 
-    config = {
-        lang_1 = 'Butcher Shop',
+    server = {
+        lang_1 = ' Sold a poor ',
+        lang_2 = ' Sold a good ',
+        lang_3 = ' Sold a perfect ',
+        lang_4 = ' for $',
     },
 
 }
